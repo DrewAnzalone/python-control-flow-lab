@@ -37,7 +37,15 @@ print_greeting()
 # - Ensure to provide feedback for non-alphabetical or invalid entries.
 
 def check_letter():
-    pass
+    alphabet = "abcdefghijlkmnopqrstuvwxyz"
+    vowels = "aeiou"
+    inp = input("Enter a letter (a-z or A-Z): ").lower()
+    while not inp or inp not in alphabet:
+        inp = input("Letter is not in acceptable range: ")
+    if inp in vowels:
+        print(f"The letter {inp} is a vowel.")
+    else:
+        print(f"The letter {inp} is a consonant.")
 
 # Call the function
 check_letter()
