@@ -114,7 +114,7 @@ def calculate_dog_years():
         print("Your dog doesn't exist.")
 
 # Call the function
-calculate_dog_years()
+# calculate_dog_years()
 
 # Exercise 4: Weather Advice
 #
@@ -133,7 +133,20 @@ calculate_dog_years()
 # - Use logical operators (`AND`, `OR`, `NOT`) in your if statements to handle multiple conditions.
 
 def weather_advice():
-    pass
+    yes = ('y', 'yes')
+    cold = input("Is it cold outside? (Y/N): ").lower() in yes
+    rain = input("Is it raining outside? (Y/N): ").lower() in yes
+    scenario = 2*int(cold) + int(rain)
+    
+    match scenario:
+        case 3:
+            return print("Wear a waterproof coat.")
+        case 2:
+            return print("Wear a warm coat.")
+        case 1:
+            return print("Carry an umbrella.")
+        case 0:
+            return print("Wear light clothing.")
 
 # Call the function
 weather_advice()
