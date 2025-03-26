@@ -99,7 +99,19 @@ def check_voting_eligibility():
 # - Apply conditional logic to perform the correct age calculation based on the dog's age.
 
 def calculate_dog_years():
-    pass
+    inp = input("Input a dog's age: ")
+    try:
+        dog_age = int(inp)
+    except:
+        dog_age = -1
+    
+    if dog_age >= 0:
+        first_2_years = min(2, dog_age)
+        rest_years = dog_age - first_2_years
+        age = first_2_years*10 + rest_years*7
+        print(f"The dog's age in dog years is {age}.")
+    else:
+        print("Your dog doesn't exist.")
 
 # Call the function
 calculate_dog_years()
