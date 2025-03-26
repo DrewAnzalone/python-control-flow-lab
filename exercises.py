@@ -204,7 +204,7 @@ def determine_season():
     print(f"{month.capitalize()} {day} is in {season}.")
 
 # Call the function
-determine_season()
+# determine_season()
 
 # Exercise 6: Number Guessing Game
 #
@@ -225,8 +225,31 @@ determine_season()
 # - Use logical AND, OR, and NOT to check conditions and provide appropriate feedback.
 
 def guess_number():
-    pass
+    success = "Congratulations, you guessed correctly!"
+    failed = "Sorry, you failed to guess the number in five attempts."
+    low = "Guess is too low."
+    high = "Guess is too high."
+    secret = 69
+    guesses = 5
+    winner = False
+    
+    while guesses >= 1:
+        if guesses == 1: print("Last chance!")
+        inp = input(f"Guess a number 0-100 ({guesses} guess{'es' if guesses > 1 else ''} remain{'s' if guesses==1 else ''}): ")
+        try:
+            inp = int(inp)
+        except:
+            print("Not a valid number.")
+            guesses -= 1
+            continue
+        
+        if inp == secret:
+            winner = True
+            break
+        print(low if inp < secret else high)
+        guesses -= 1
+    
+    print(success if winner else failed)
 
 # Call the function
 guess_number()
-
