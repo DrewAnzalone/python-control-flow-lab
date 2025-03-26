@@ -1,3 +1,5 @@
+from datetime import date
+
 # Exercise 0: Example
 #
 # This is a practice exercise to help you understand how to write code "inside" a provided Python function.
@@ -149,7 +151,7 @@ def weather_advice():
             return print("Wear light clothing.")
 
 # Call the function
-weather_advice()
+# weather_advice()
 
 # Exercise 5: What's the Season?
 #
@@ -171,7 +173,35 @@ weather_advice()
 # - Ensure to validate input formats and handle unexpected inputs gracefully.
 
 def determine_season():
-    pass
+    months = ("jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec")
+    month = input("Enter the month of the year (Jan - Dec): ").lower()
+    while not month or month not in months:
+        month = input("Invalid month code: ")
+    month_num = months.index(month)+1
+    
+    long_months = (1, 3, 5, 7, 8, 10, 12)
+    max_days = 30 + int(month_num in long_months)
+    if month_num == 2: max_days -= 2
+
+    valid_days = [str(i) for i in range(1, max_days+1)]
+    day = input("Enter the day of the month: ")
+    while day not in valid_days:
+        day = input("Invalid day: ")
+    day = int(day)
+    
+    inp_date = date(2024, month_num, day)
+    winter_end = date(2024, 3, 19)
+    spring_end = date(2024, 6, 20)
+    summer_end = date(2024, 9, 21)
+    fall_end = date(2024, 12, 20)
+    
+    season = "Winter"
+    if inp_date <= fall_end: season = "Fall"
+    if inp_date <= summer_end: season = "Summer"
+    if inp_date <= spring_end: season = "Spring"
+    if inp_date <= winter_end: season = "Winter"
+    
+    print(f"{month.capitalize()} {day} is in {season}.")
 
 # Call the function
 determine_season()
