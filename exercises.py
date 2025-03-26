@@ -17,7 +17,7 @@ def print_greeting():
         print("Python is fun!")
 
 # Call the function
-print_greeting()
+# print_greeting()
 
 # Exercise 1: Vowel or Consonant
 #
@@ -42,13 +42,12 @@ def check_letter():
     inp = input("Enter a letter (a-z or A-Z): ").lower()
     while not inp or inp not in alphabet:
         inp = input("Letter is not in acceptable range: ")
-    if inp in vowels:
-        print(f"The letter {inp} is a vowel.")
-    else:
-        print(f"The letter {inp} is a consonant.")
+    
+    if inp in vowels: print(f"The letter {inp} is a vowel.")
+    else: print(f"The letter {inp} is a consonant.")
 
 # Call the function
-check_letter()
+# check_letter()
 
 # Exercise 2: Old enough to vote?
 #
@@ -67,10 +66,19 @@ check_letter()
 # - Use a conditional statement to check if the age meets the minimum voting age requirement.
 
 def check_voting_eligibility():
-    pass
+    voting_age = 18
+    inp = input("Please enter your age: ")
+    try:
+        age = int(inp)
+    except:
+        age = 0
+        
+    if age >= voting_age: print("you are eligible to vote.")
+    else: print("You are not eligible to vote.")
+    
 
 # Call the function
-check_voting_eligibility()
+# check_voting_eligibility()
 
 # Exercise 3: Calculate Dog Years
 #
